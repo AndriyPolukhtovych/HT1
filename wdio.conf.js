@@ -74,16 +74,12 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome',
-        'goog:chromeOptions': {
-            prefs: {
-                'download.default_directory': downloadDir
-                 }}
+        browserName: 'chrome'
     }, 
     // {
     //     browserName: 'firefox'
     // }
-    ],
+],
 
     //
     // ===================
@@ -177,11 +173,8 @@ exports.config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    onPrepare: function (config, capabilities) {
-        if(!fs.existsSync(downloadDir)){
-            fs.mkdirSync(downloadDir)
-        }
-    },
+    // onPrepare: function (config, capabilities) {
+    // },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -305,9 +298,8 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function(exitCode, config, capabilities, results) {
-        rmdir(downloadDir)
-    },
+    // onComplete: function(exitCode, config, capabilities, results) {
+    // },
     /**
     * Gets executed when a refresh happens.
     * @param {string} oldSessionId session ID of the old session
